@@ -1,0 +1,35 @@
+cabal-version:      2.4
+name:               hs2json
+version:            0.1.0.0
+synopsis:           Biblioteca de manipulacao e pretty printing de JSON em Haskell
+license:            BSD-3-Clause
+author:             Dupla hs2json
+build-type:         Simple
+
+library
+    exposed-modules:    SimpleJSON
+                       ,Prettify
+                       ,PrettyJSON
+    hs-Source-dirs:     src 
+    buils-depends:      base >= 4.14 && <  5.0
+                       ,Numeric
+    default-language:   Haskell2010
+    ghc-options:        -Wall
+
+executable hs2json-exe 
+    main-is:            Main.hs
+    hs-source-dirs:     app
+    build-depends:      base >= 4.14 && < 5.0
+                       ,hs2json
+    default-language:   Haskell2010
+    ghc-options:        -Wall
+
+test-suite hs2json-test
+    type:               exitcode-stdio-1.0
+    main-is:            Spec.hs
+    hs-source-dirs:     test
+    build-depends:      base >= 4.14 && < 5.0
+                       ,hs2json
+                       ,QuickCheck >= 2.14
+    default-language:   Haskell2010
+    ghc-options:       -Wall
