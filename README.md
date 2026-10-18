@@ -10,6 +10,11 @@ Biblioteca em Haskell para representação, formatação (*pretty printing*) de 
 
 ---
 
+## 🎥 Vídeo de Apresentação
+- **Link:** [falta gravar o video]
+
+---
+
 ## 🛠️ Tecnologias e Requisitos
 - **Compilador:** GHC 9.4+ (ou compatível com a série GHC 9.x)
 - **Gerenciador de Build:** Cabal 3.4+
