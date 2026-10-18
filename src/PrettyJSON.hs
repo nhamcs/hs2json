@@ -9,19 +9,19 @@ import Data.Char (ord)
 import Prelude hiding ((<>))
 
 string :: String -> Doc
-string = enclose ' "' '" ' . hcat . map oneChar
+string = enclose '"' '"' . hcat . map oneChar
 
-enoclose :: Char -> Char -> Doc -> Doc
-enclose left right d = charr left <> d <> char right
+enclose :: Char -> Char -> Doc -> Doc
+enclose left right d = char left <> d <> char right
 
 oneChar :: Char -> Doc
 oneChar c = case lookup c simpleEscapes of 
     Just r -> text r 
     Nothing
-        | mustEscape c -> hexEscape case
+        | mustEscape c -> hexEscape c
         | otherwise    -> char c 
     where
-        mustEscape ch = ch < '' || ch == '\x7f' || ch > '\xff'
+        mustEscape ch = ch < ' ' || ch == '\x7f' || ch > '\xff'
     
 simpleEscapes :: [(Char, String)]
 simpleEscapes = 
@@ -30,7 +30,7 @@ simpleEscapes =
     , ('\f', "\\f")
     , ('\r', "\\r")
     , ('\t', "\\t")
-    , ("\\", "\\\\")
+    , ('\\', "\\\\")
     , ('\"', "\\\"")
     ]
 

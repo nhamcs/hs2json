@@ -11,8 +11,7 @@ library
                        ,Prettify
                        ,PrettyJSON
     hs-Source-dirs:     src 
-    buils-depends:      base >= 4.14 && <  5.0
-                       ,Numeric
+    build-depends:      base >= 4.14 && <  5.0
     default-language:   Haskell2010
     ghc-options:        -Wall
 
